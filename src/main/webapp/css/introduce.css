@@ -1,0 +1,71 @@
+@charset "utf8";
+.back{
+	font-size:12px;
+	width:980px;
+	height:680px;
+/*	background:url(../images/dl2.jpg) no-repeat;*/
+	-moz-background-size:cover;
+	background-size:cover;
+	letter-spacing: 1px;
+}
+.col{
+	color:#FF0000;
+}
+.ys{
+	width:140px;
+}
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+.botta{
+	color:#FF6600;
+	text-decoration:none;
+	font-size:13px;
+}
+.navigater {
+  padding-top: 35px;
+  margin: 0 auto;
+  width: 760px;
+}
+.nav.host-intro, .nav.sure-reward, .nav.attention-intro, .nav.game-rule{
+  border-right: 2px solid red;
+}
+.nav {
+  float: left;
+  cursor: pointer;
+  font-size: 16px;
+  color: rgb(53, 73, 126);
+  padding: 0 30px;
+  font-weight: bold;
+}
+.content-container {
+  margin: 30px auto;
+  width: 750px;
+  background: white;
+  padding: 20px 20px 50px 20px;
+  border-radius: 30px;
+  border: 1px solid rgb(159, 166, 171);
+}
+p.title {
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
+  text-align: left;
+  line-height: 50px;
+}
+p.cont-p {
+  text-indent: 2em;
+  font-size: 14px;
+  text-align: left;
+  line-height: 24px;
+}
+.btn-area {
+	margin-bottom: 40px;
+}
+label.brower {
+  color: #ff0000;
+  padding: 5px;
+  font-weight: bold;
+}

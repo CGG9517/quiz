@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID"
+         version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <!-- 加载spring容器 -->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:config/spring/applicationContext-dao.xml</param-value>
+  </context-param>
+
+  <!-- 配置监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+
+  <servlet>
+    <servlet-name>dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!-- contextConfigLocation配置springMVC加载的配置文件（配置处理器映射器，适配器等
+  		默认加载/WEB-INF/${servlet-name}$-servlet.xml(springMVC-servlet.xml) -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <!-- 第一种：*.action, 访问以.action结尾都由DispatcherServlet进行解析；
+      第二种：/， 所有访问地址都有DispatcherServlet进行解析，静态文件需要配置不让DispatcherServlet进行解析，
+      使用这种方式可以实现RESTful风格的url；
+      第三种：/*， 配置不对，使用这种配置，最终转发到一个jsp页面， 仍然会由DispatcherServlet解析jsp地址， 不能找到handler,报错 -->
+    <servlet-name>dispatcher</servlet-name>
+    <url-pattern>*.action</url-pattern>
+  </servlet-mapping>
+
+  <!-- 对静态资源的映射器 -->
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/css/*</url-pattern>
+    <url-pattern>/images/*</url-pattern>
+    <url-pattern>/js/*</url-pattern>
+  </servlet-mapping>
+
+<!-- filter控制用户访问权限 -->
+  <filter>
+    <filter-name>AuthFilter</filter-name>
+    <filter-class>info.quiz.filter.AuthFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+  </filter-mapping>
+
+
+  <!-- 解决post乱码 -->
+  <filter>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,50 @@
+body{
+	background-image: url('../images/bghead.jpg');
+    background-repeat: repeat-x;
+    background-position: center top;
+    background-color: rgb(224,237,246);
+}
+.title {
+	text-align:center;
+	margin: 50px 0 10px 0;
+}
+#fm{
+    margin:0;
+    padding:10px 30px;
+}
+#record-fm{
+    margin:0;
+    padding:10px 30px;
+}
+.ftitle{
+    font-size:14px;
+    font-weight:bold;
+    padding:5px 0;
+    margin-bottom:10px;
+    border-bottom:1px solid #ccc;
+}
+.fitem{
+    margin-bottom:5px;
+}
+.fitem label{
+    display:inline-block;
+    width:80px;
+}
+.fitem input{
+    width:160px;
+}
+.easyui-tabs {
+	width: 1000px;
+    height: 650px;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+.easyui-datagrid {
+	width: 990px;
+	height: 630px;
+}
+
+.Footer {
+	text-align: center;
+	margin-top: 15px;
+}
